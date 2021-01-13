@@ -1,0 +1,16 @@
+---
+applications:
+  - name: rfid-poc-db
+    path: ./gen/db
+    no-route: true
+    health-check-type: process
+    memory: 256M
+    services:
+      - rfid_poc_hdi
+
+  - name: rfid-poc-srv
+    path: .
+    random-route: true
+    memory: 256M
+    services:
+      - rfid_poc_hdi
