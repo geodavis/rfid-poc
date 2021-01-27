@@ -2,14 +2,14 @@ const cds = require("@sap/cds");
 const { TagReads } = cds.entities("biofiredx.sc.rfid");
 
 module.exports = (srv) => {
-    srv.on("READ", "TagReads", (req, res) => {
-        const { SELECT } = cds.ql(req);
+/*    srv.on("READ", "TagReads", (req, res) => {
+         const { SELECT } = cds.ql(req);
         const result = SELECT.from(TagReads);
         console.log(result);
-        return result;
-    });
+        return result; 
+    });*/
 
-    srv.on("CREATE", "InsertTagReads", async (req, res) => {
+/*     srv.on("CREATE", "InsertTagReads", async (req, res) => {
         let returnData = await cds
           .transaction(req)
           .run(
@@ -37,6 +37,13 @@ module.exports = (srv) => {
           });
         console.log("Before End", returnData);
         return returnData;
-      });
+      }); */
 
+/*      srv.on("CREATE", "InsertMultipleTags", async (req) => {
+         req._.req.logger.info('on getUserInfo');
+        const userId = req.user.id;
+        const { ID } = await SELECT.one(People).columns('ID').where({ employeeId: userId }); 
+        return "Test";
+      });
+*/
 };

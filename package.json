@@ -23,7 +23,8 @@
     },
     "requires": {
       "db": {
-        "kind": "hana"
+        "kind": "hana",
+        "model": "*"
       }
     }
   }
