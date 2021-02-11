@@ -7,7 +7,7 @@
     "description": "tagReads",
     "dataSources": {
       "rfidservice": {
-        "uri": "/rfidservice/",
+        "uri": "/rfidserviceapp/",
         "type": "OData",
         "settings": {
           "odataVersion": "4.0"

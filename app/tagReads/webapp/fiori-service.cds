@@ -1,4 +1,4 @@
-using rfidservice as serviceRFID from '../../../srv/rfidservice';
+using rfidserviceapp as serviceRFID from '../../../srv/rfidservice';
 
 annotate serviceRFID.GetTagReadHeaders with @(UI : {
     /* SelectionFields : [ID], */
