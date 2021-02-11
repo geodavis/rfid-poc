@@ -1,3 +1,6 @@
 [
-    "src/gen/csv/biofiredx.sc.rfid.TagReads.hdbtabledata"
+    "src/gen/csv/biofiredx.sc.rfid.schema.ReaderModes.hdbtabledata",
+    "src/gen/csv/biofiredx.sc.rfid.schema.TagReads.hdbtabledata",
+    "src/gen/csv/biofiredx.sc.rfid.schema.TagReadsHeader.hdbtabledata",
+    "src/gen/csv/biofiredx.sc.rfid.schema.Readers.hdbtabledata"
 ]

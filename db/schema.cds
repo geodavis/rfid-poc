@@ -1,4 +1,5 @@
-namespace biofiredx.sc.rfid;
+namespace biofiredx.sc.rfid.schema;
+
 using { cuid, managed } from '@sap/cds/common';
 
 entity TagReadsHeader : cuid, managed {
@@ -7,9 +8,19 @@ entity TagReadsHeader : cuid, managed {
 
 entity TagReads : cuid {
     tagReadsHeader   : Association to TagReadsHeader;
-    reader: String(255);
+    reader : String(255);
     antenna : Integer;
     tagID : String(255);
     rssi : Integer;
     timeRead : DateTime;
 }
+
+/* entity Readers : cuid {
+    hostName : String(255);
+    serialNumber : String(255);
+    mode : Association to ReaderModes;
+}
+
+entity ReaderModes : cuid {
+    name : String;
+} */

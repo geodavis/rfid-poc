@@ -1,0 +1,106 @@
+{
+  "_version": "1.8.0",
+  "sap.app": {
+    "id": "tagReads",
+    "type": "application",
+    "title": "Tag Reads",
+    "description": "tagReads",
+    "dataSources": {
+      "rfidservice": {
+        "uri": "/rfidservice/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "libs": {
+        "sap.fe": {}
+      }
+    },
+    "models": {
+      "": {
+        "dataSource": "rfidservice",
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": false,
+          "earlyRequests": false,
+          "groupProperties": {
+            "default": {
+              "submit": "Auto"
+            }
+          }
+        }
+      }
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "TagReadHeader",
+          "target": "TagReadHeader"
+        },
+        {
+          "pattern": "GetTagReadHeaders({key}):?query:",
+          "name": "TagReadsDetail",
+          "target": "TagReadsDetail"
+        },
+        {
+          "pattern": "GetTagReadHeaders({key})/tagReads:?query:",
+          "name": "TagReads",
+          "target": "TagReads"
+        }
+      ],
+      "targets": {
+        "TagReadHeader": {
+          "type": "Component",
+          "id": "TagReadHeader",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "entitySet": "GetTagReadHeaders",
+              "navigation": {
+                "GetTagReadHeaders": {
+                  "detail": {
+                    "route": "TagReadsDetail"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "TagReadsDetail": {
+          "type": "Component",
+          "id": "TagReadsDetail",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "entitySet": "GetTagReadHeaders",
+              "navigation": {
+                "tagReads": {
+                  "detail": {
+                    "route": "TagReads"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "TagReads": {
+          "type": "Component",
+          "id": "TagReads",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "entitySet": "GetTagReads"
+            }
+          }
+        }
+      }
+    }
+  }
+}
