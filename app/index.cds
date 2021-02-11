@@ -1,1 +1,1 @@
-using from './TagReads/webapp/fiori-service';
+using from './tagReads/webapp/fiori-service';
